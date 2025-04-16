@@ -30,11 +30,15 @@ int main() {
 		std::cout << "Number of words: " << numWords << "\n";
 		auto end = system_clock::now();
 
-		int duration_sec = duration_cast<seconds>(end - start).count();
+		float duration_sec = duration_cast<seconds>(end - start).count();
 		std::cout << "Elapsed time (sec): " << duration_sec << "\n";
 
+		// TODO: calculate wpm
+		// words per 60 seconds
+		float wpm = numWords / (duration_sec/60);
 
-		std::cout << "\nWould you like to play again? (y/n): ";
+		std::cout << "Your wpm was: " << wpm << "\n";
+		std::cout << "Would you like to play again? (y/n): ";
 		getline(std::cin, ans);
 	}
 
