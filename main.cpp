@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <typeinfo>
+
 using namespace std::chrono;
 
 int countWords(std::string str) {
@@ -24,16 +26,13 @@ int main() {
 		std::string userString = "";
 		std::cout << "Type shit: ";
 		getline (std::cin, userString);
-		= countWords(userString);
-		std::cout << "Number of words: " << wordcount << "\n";
-
+		int numWords = countWords(userString);
+		std::cout << "Number of words: " << numWords << "\n";
 		auto end = system_clock::now();
 
-		<double> = duration_cast<seconds>(end - start);
-		std::cout << "Time: " << dur.count() << "s\n";
+		int duration_sec = duration_cast<seconds>(end - start).count();
+		std::cout << "Elapsed time (sec): " << duration_sec << "\n";
 
-		int wpm = dur/(wordcount*60);
-		std::cout << "WPM: " << wpm;
 
 		std::cout << "\nWould you like to play again? (y/n): ";
 		getline(std::cin, ans);
